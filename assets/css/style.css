@@ -864,7 +864,7 @@ img {
   margin: 20px 8px;
 }
 #contact {
-  margin: 20px 0;
+  padding: 20px 0;
   background: #333;
   background-size: cover;
 }
