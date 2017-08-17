@@ -864,8 +864,13 @@ img {
   margin: 20px 8px;
 }
 #contact {
+  margin: 20px 0;
   background: #333;
   background-size: cover;
+}
+#contact .typeform-widget {
+  height: 500px;
+  width: 100%;
 }
 #contact .section-title span {
   color: #fff;
