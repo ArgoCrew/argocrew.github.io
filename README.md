@@ -1,6 +1,20 @@
 ArgonautsCrew.io
 ===
 
+## To-Do
+
+- Landing Page
+  - [ ] Intro
+  - [ ] About
+  - [ ] Team
+  - [ ] Cases
+  - [ ] Clients & Partners
+  - [ ] Contact
+- Features
+  - [ ] Responsive
+  - [ ] PageSpeed Insights Mobile 95/100
+  - [ ] PageSpeed Insights Desktop 95/100
+
 ### References
 - [Networkism.org](http://www.networkism.org/nw/index.cfm)
 - [Particles Ocean three.js](https://codepen.io/cklppt/pen/GZYdNe)
