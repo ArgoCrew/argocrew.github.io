@@ -19,3 +19,14 @@ draft_template: draft
 
 plugins:
   - jekyll-assets
+
+assets:
+  destination: "/assets"
+  compression: false
+  caching:
+    path: ".jekyll-cache/assets"
+    type: file # Possible values: memory, file
+    enabled: true
+  gzip: false
+  sources:
+    - node_modules

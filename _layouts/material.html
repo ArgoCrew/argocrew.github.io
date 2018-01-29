@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.name }}{% if site.description %} - {{ site.description }}{% endif %}</title>
+  <meta charset="UTF-8">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% if page.title %}
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="twitter:title" content="{{ page.title }}">
+  {% else %}
+    <meta property="og:title" content="{{ site.name }}">
+    <meta property="twitter:title" content="{{ site.name }}">
+  {% endif %}
+
+  {% if page.excerpt %}
+    <meta name="description" content="{{ page.excerpt | strip_html }}">
+    <meta property="og:description" content="{{ page.excerpt | strip_html }}">
+  {% else %}
+    <meta name="description" content="{{ site.description }}">
+    <meta property="og:description" content="{{ site.description }}">
+  {% endif %}
+  <!-- TODO: Improve page author -->
+  {% if page.author %}
+    <meta name="author" content="{{ page.author }}">
+  {% else %}
+    <meta name="author" content="{{ site.name }}">
+  {% endif %}
+
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:type" content="website">
+  {% if page.url %}
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {% else %}
+    <meta property="og:url" content="{{ site.url }}">
+  {% endif %}
+  <meta property="og:locale" content="pt_BR"/>
+
+  <!--
+  <meta property="og:video" content="http://example.com/movie.swf">
+  <meta property="og:video:secure_url" content="https://secure.example.com/movie.swf">
+  <meta property="og:video:type" content="application/x-shockwave-flash">
+  <meta property="og:video:width" content="400">
+  <meta property="og:video:height" content="300">
+  -->
+
+  <!--
+  <meta property="og:audio" content="http://example.com/sound.mp3">
+  <meta property="og:audio:secure_url" content="https://secure.example.com/sound.mp3">
+  <meta property="og:audio:type" content="audio/mpeg">
+  -->
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@{{site.accounts.twitter.username}}">
+  <meta name="twitter:creator" content="@{{site.accounts.twitter.username}}">
+
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
+
+  <meta name="google-site-verification" content="">
+  <meta name="alexaVerifyID" content="">
+  <meta name="msvalidate1.01" content="">
+
+  <!-- TODO: Implement Schema
+  {% comment %}
+  <script type="application/ld+json">
+    {% include schema-newsarticle.json %}
+  </script>
+  {% endcomment %}
+   -->
+
+  <link rel="icon" href="images/favicons/favicon.ico">
+  <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+
+  <!-- CSS:vendors -->
+  <link rel="stylesheet" href="{% asset 'material-design-lite/material.css' @path %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.green-amber.min.css">
+
+  <!-- FONTS Google -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bevan|Corben|Kelly+Slab|Vast+Shadow">
+  <!-- CSS:vendors -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body id="page" data-linkscroll="y">
+  {% if site.services.google_tagmanager.id %}
+    <noscript><iframe src="https//www.googletagmanager.com/ns.html?id={{ site.services.google_tagmanager.id }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":
+      new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+      "//www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,"script","dataLayer","{{ site.services.google_tagmanager.id }}");
+    </script>
+  {% endif %}
+  {% if site.services.facebook.pixel_id %}
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,"script","https://connect.facebook.net/en_US/fbevents.js");
+      fbq("init", "539221682943324");
+      fbq("track", "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=539221682943324&ev=PageView&noscript=1"
+    /></noscript>
+  {% endif %}
+  {% if site.services.hotjar.id %}
+    <script>
+      (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:{{ site.services.hotjar.id }},hjsv:5};
+      a=o.getElementsByTagName("head")[0];
+      r=o.createElement("script");r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+      })(window,document,"https//static.hotjar.com/c/hotjar-",".js?sv=");
+    </script>
+  {% endif %}
+
+  {{ content }}
+
+  {% if site.services.google_analytics.id %}
+    <script>
+      (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,"script","https//www.google-analytics.com/analytics.js","ga");
+      ga("create", "{{ site.services.google_analytics.id }}", "auto");
+    </script>
+  {% endif %}
+
+  <!-- JS:vendors -->
+  <javascript src="{% asset 'material-design-lite/material.js' @path %}"></javascript>
+  <!-- JS:vendors -->
+
+
+  {% if site.services.addthis.src %}
+    <script src="{{ site.services.addthis.src }}"></script>
+  {% endif %}
+  {% if site.services.track_chat.id %}
+    <script>
+      (function(){
+      var d=document;
+      var h=d.getElementsByTagName("head")[0];
+      var s=d.createElement("script");s.type="text/javascript";
+      s.defer=true;
+      s.async=true;
+      s.onreadystatechange=function(){
+        if(this.readyState=="complete"||this.readyState=="loaded")t();
+      };
+      s.onload=t;
+      s.src="https://track-chat.com/zdjs/{{ site.services.track_chat.id }}?ref=" +
+        encodeURIComponent(d.referrer) +
+        "&cur=" + encodeURIComponent(d.location);h.appendChild(s);
+      function t(){ trackchat.init({}); }})();
+    </script>
+  {% endif %}
+  {% if site.services.linked_chat.id %}
+    <script src="https://linked.chat/web/{{ site.services.linked_chat.id }}" async></script>
+  {% endif %}
+  {% if site.accounts.youtube.channel %}
+    <script src="https://apis.google.com/js/platform.js"></script>
+  {% endif %}
+  {% if site.services.google_maps.api_key %}
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key={{ site.services.google_maps.api_key }}&callback=initMap&libraries=places,visualization" async defer></script> -->
+  {% endif %}
+</body>
+</html>

@@ -51,3 +51,8 @@ build-iPhoneSimulator/
 
 # jekyll
 .jekyll-metadata
+.jekyll-cache
+_site
+
+# npm
+node_modules

@@ -1,0 +1,23 @@
+{
+  "name": "argonautscrew.io",
+  "version": "0.0.1",
+  "description": "navigating in the ocean of data",
+  "devDependencies": {
+    "material-design-lite": "^1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArgonautsCrew/ArgonautsCrew.github.io.git"
+  },
+  "keywords": [
+    "software",
+    "data",
+    "crew"
+  ],
+  "author": "@GustavoRPS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArgonautsCrew/ArgonautsCrew.github.io/issues"
+  },
+  "homepage": "https://github.com/ArgonautsCrew/ArgonautsCrew.github.io#readme"
+}
