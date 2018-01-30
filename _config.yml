@@ -20,6 +20,8 @@ draft_template: draft
 plugins:
   - jekyll-assets
 
+sass:
+    sass_dir: _assets/sass
 assets:
   destination: "/assets"
   compression: false
@@ -30,3 +32,4 @@ assets:
   gzip: false
   sources:
     - node_modules
+    - _assets/sass
